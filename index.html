@@ -774,6 +774,29 @@ section {
     border-radius: 6px;
     background: var(--bg2);
     min-width: 60px;
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .t-stat::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(57,255,120,0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .t-stat:hover {
+    border-color: rgba(57,255,120,0.6);
+    background: rgba(57,255,120,0.06);
+    transform: translateY(-6px) scale(1.08);
+    box-shadow: 0 0 16px rgba(57,255,120,0.3), 0 0 40px rgba(57,255,120,0.1);
+  }
+  .t-stat:hover::before { opacity: 1; }
+  .t-stat:hover span {
+    color: #39ff78 !important;
+    text-shadow: 0 0 15px rgba(57,255,120,0.6);
   }
   .t-stat span {
     font-family: 'Cormorant Garamond', serif;
@@ -781,14 +804,7 @@ section {
     font-weight: 600;
     color: var(--accent);
     line-height: 1;
-  }
-  .t-stat {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 0.2rem;
+    transition: all 0.3s ease;
   }
   .timeline-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .t-tag {
