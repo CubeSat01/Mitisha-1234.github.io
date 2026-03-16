@@ -801,6 +801,107 @@ section {
     border-radius: 100px;
     color: var(--muted);
   }
+ /* SKILLS REDESIGN */
+  .skills-universe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+  .skill-category-block {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-category-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: radial-gradient(ellipse at top left, rgba(57,255,120,0.04), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .skill-category-block:hover {
+    border-color: rgba(57,255,120,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(57,255,120,0.15), 0 0 60px rgba(57,255,120,0.06);
+  }
+  .skill-category-block:hover::before { opacity: 1; }
+  .skill-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .skill-cat-icon {
+    font-size: 1.5rem;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg2);
+    border-radius: 10px;
+    border: 0.5px solid var(--border2);
+    flex-shrink: 0;
+  }
+  .skill-cat-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .skill-cat-sub {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .skill-chip-purple {
+    border-color: rgba(168,180,255,0.4) !important;
+    color: var(--accent) !important;
+    background: rgba(168,180,255,0.08) !important;
+  }
+  .skill-chip-purple:hover {
+    border-color: rgba(168,180,255,0.8) !important;
+    box-shadow: 0 0 14px rgba(168,180,255,0.3) !important;
+    color: #ffffff !important;
+  }
+  .skill-chip-amber {
+    border-color: rgba(240,194,122,0.4) !important;
+    color: var(--accent3) !important;
+    background: rgba(240,194,122,0.08) !important;
+  }
+  .skill-chip-amber:hover {
+    border-color: rgba(240,194,122,0.8) !important;
+    box-shadow: 0 0 14px rgba(240,194,122,0.3) !important;
+    color: #ffffff !important;
+  }
+  .skill-chip-teal {
+    border-color: rgba(110,231,199,0.4) !important;
+    color: var(--accent2) !important;
+    background: rgba(110,231,199,0.08) !important;
+  }
+  .skill-chip-teal:hover {
+    border-color: rgba(110,231,199,0.8) !important;
+    box-shadow: 0 0 14px rgba(110,231,199,0.3) !important;
+    color: #ffffff !important;
+  }
+  .skill-chip-green {
+    border-color: rgba(57,255,120,0.4) !important;
+    color: #39ff78 !important;
+    background: rgba(57,255,120,0.08) !important;
+  }
+  .skill-chip-green:hover {
+    border-color: rgba(57,255,120,0.8) !important;
+    box-shadow: 0 0 14px rgba(57,255,120,0.35) !important;
+    color: #ffffff !important;
+  }
 </style>
 </head>
 <body>
@@ -1206,48 +1307,77 @@ section {
 </section>
 <section id="skills">
   <div class="section-label">07 — Tools</div>
-  <h2>Skills  &amp; Technologies </h2>
+  <h2><strong>Skills & Technologies</strong></h2>
   <br/>
-  <div class="skills-section">
-    <!-- ✏️ EDIT: Add/remove skill chips freely -->
-    <div class="skills-category">
-      <div class="skills-cat-label">Languages</div>
+
+  <div class="skills-universe">
+
+    <div class="skill-category-block">
+      <div class="skill-cat-header">
+        <span class="skill-cat-icon">⌨</span>
+        <div>
+          <div class="skill-cat-title">Languages</div>
+          <div class="skill-cat-sub">Core programming languages</div>
+        </div>
+      </div>
       <div class="skills-wrap">
-        <span class="skill-chip">Embedded C</span>
-        <span class="skill-chip">C++</span>
-        <span class="skill-chip">Verilog</span>
+        <span class="skill-chip skill-chip-purple">C</span>
+        <span class="skill-chip skill-chip-purple">C++</span>
+        <span class="skill-chip skill-chip-purple">Verilog</span>
       </div>
     </div>
-    <div class="skills-category">
-      <div class="skills-cat-label">EDA &amp; Semiconductor</div>
+
+    <div class="skill-category-block">
+      <div class="skill-cat-header">
+        <span class="skill-cat-icon">🔬</span>
+        <div>
+          <div class="skill-cat-title">EDA & Semiconductor</div>
+          <div class="skill-cat-sub">Chip design & simulation tools</div>
+        </div>
+      </div>
       <div class="skills-wrap">
-        <span class="skill-chip">Synopsys Design Compiler</span>
-        <span class="skill-chip">IC Compiler II (ICC2)</span>
-        <span class="skill-chip">PrimeTime</span>
-        <span class="skill-chip">Verdi</span>
-        <span class="skill-chip">Sentaurus TCAD</span>
+        <span class="skill-chip skill-chip-amber">Synopsys Design Compiler</span>
+        <span class="skill-chip skill-chip-amber">IC Compiler II (ICC2)</span>
+        <span class="skill-chip skill-chip-amber">PrimeTime</span>
+        <span class="skill-chip skill-chip-amber">Verdi</span>
+        <span class="skill-chip skill-chip-amber">Sentaurus TCAD</span>
       </div>
     </div>
-    <div class="skills-category">
-      <div class="skills-cat-label">Embedded Systems &amp; Power Electronics</div>
+
+    <div class="skill-category-block">
+      <div class="skill-cat-header">
+        <span class="skill-cat-icon">⚡</span>
+        <div>
+          <div class="skill-cat-title">Embedded & Power Electronics</div>
+          <div class="skill-cat-sub">Hardware & IoT development</div>
+        </div>
+      </div>
       <div class="skills-wrap">
-        <span class="skill-chip">Proteus</span>
-        <span class="skill-chip">Testing and Debugging</span>
-        <span class="skill-chip">Arduino IDE</span>
-        <span class="skill-chip">MQTTx</span>
-       <span class="skill-chip">Circuit Designing</span>
-        <span class="skill-chip">PCB Design</span>
+        <span class="skill-chip skill-chip-teal">Proteus</span>
+        <span class="skill-chip skill-chip-teal">Arduino IDE</span>
+        <span class="skill-chip skill-chip-teal">MQTTx</span>
+        <span class="skill-chip skill-chip-teal">PCB Design</span>
+        <span class="skill-chip skill-chip-teal">Circuit Designing</span>
+        <span class="skill-chip skill-chip-teal">Testing & Debugging</span>
       </div>
     </div>
-    <div class="skills-category">
-      <div class="skills-cat-label">Satellite &amp; Space</div>
+
+    <div class="skill-category-block">
+      <div class="skill-cat-header">
+        <span class="skill-cat-icon">🛰</span>
+        <div>
+          <div class="skill-cat-title">Satellite & Space</div>
+          <div class="skill-cat-sub">Orbital & attitude systems</div>
+        </div>
+      </div>
       <div class="skills-wrap">
-        <span class="skill-chip">G-Predict</span>
-        <span class="skill-chip">ADCS Algorithms</span>
-        <span class="skill-chip">Sensor Fusion</span>
-        <span class="skill-chip">CubeSat Standards</span>
+        <span class="skill-chip skill-chip-green">G-Predict</span>
+        <span class="skill-chip skill-chip-green">ADCS Algorithms</span>
+        <span class="skill-chip skill-chip-green">Sensor Fusion</span>
+        <span class="skill-chip skill-chip-green">CubeSat Standards</span>
       </div>
     </div>
+
   </div>
 </section>
 
