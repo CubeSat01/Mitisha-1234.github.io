@@ -1270,6 +1270,259 @@ section {
     .skills-showcase { grid-template-columns: 1fr; }
     .skills-left-panel { position: relative; top: 0; }
   }
+ /* JOURNEY REDESIGN */
+  .journey-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    max-width: 100%;
+  }
+  .journey-milestone {
+    display: grid;
+    grid-template-columns: 160px 80px 1fr;
+    gap: 0;
+    position: relative;
+    min-height: 120px;
+  }
+  .jm-left {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+  }
+  .jm-year-block { text-align: right; }
+  .jm-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .jm-year-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .jm-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .jm-node {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid rgba(168,180,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    margin-top: 0.8rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  .jm-node:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(168,180,255,0.4);
+  }
+  .jm-node-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(168,180,255,0.2);
+  }
+  .jm-ring-pulse {
+    animation: ringPulse 2s ease-in-out infinite;
+    border-color: rgba(57,255,120,0.5) !important;
+  }
+  @keyframes ringPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 1; }
+  }
+  .jm-node-teal { border-color: rgba(110,231,199,0.4); box-shadow: 0 0 15px rgba(110,231,199,0.15); }
+  .jm-node-purple { border-color: rgba(168,180,255,0.4); box-shadow: 0 0 15px rgba(168,180,255,0.15); }
+  .jm-node-amber { border-color: rgba(240,194,122,0.4); box-shadow: 0 0 15px rgba(240,194,122,0.15); }
+  .jm-node-green {
+    border-color: rgba(57,255,120,0.6) !important;
+    box-shadow: 0 0 20px rgba(57,255,120,0.3), 0 0 40px rgba(57,255,120,0.1) !important;
+    animation: greenNodePulse 2s ease-in-out infinite;
+  }
+  @keyframes greenNodePulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(57,255,120,0.3); }
+    50% { box-shadow: 0 0 30px rgba(57,255,120,0.6), 0 0 60px rgba(57,255,120,0.2); }
+  }
+  .jm-connector {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(168,180,255,0.3), rgba(110,231,199,0.2));
+    margin: 4px 0;
+    min-height: 60px;
+  }
+  .jm-right {
+    padding: 0.8rem 0 2.5rem 1.5rem;
+  }
+  .jm-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .jm-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(168,180,255,0.3), transparent);
+  }
+  .jm-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: radial-gradient(ellipse at top right, rgba(168,180,255,0.04), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .jm-card:hover { transform: translateX(6px); }
+  .jm-card:hover::after { opacity: 1; }
+  .jm-card-teal { border-color: rgba(110,231,199,0.2); }
+  .jm-card-teal::before { background: linear-gradient(90deg, transparent, rgba(110,231,199,0.3), transparent); }
+  .jm-card-teal:hover { border-color: rgba(110,231,199,0.4); box-shadow: 0 0 25px rgba(110,231,199,0.1); }
+  .jm-card-purple { border-color: rgba(168,180,255,0.2); }
+  .jm-card-purple::before { background: linear-gradient(90deg, transparent, rgba(168,180,255,0.3), transparent); }
+  .jm-card-purple:hover { border-color: rgba(168,180,255,0.4); box-shadow: 0 0 25px rgba(168,180,255,0.1); }
+  .jm-card-amber { border-color: rgba(240,194,122,0.2); }
+  .jm-card-amber::before { background: linear-gradient(90deg, transparent, rgba(240,194,122,0.3), transparent); }
+  .jm-card-amber:hover { border-color: rgba(240,194,122,0.4); box-shadow: 0 0 25px rgba(240,194,122,0.1); }
+  .jm-card-green {
+    border-color: rgba(57,255,120,0.3) !important;
+    background: linear-gradient(135deg, #0f1a12, #121220) !important;
+    box-shadow: 0 0 30px rgba(57,255,120,0.08);
+  }
+  .jm-card-green::before { background: linear-gradient(90deg, transparent, rgba(57,255,120,0.4), transparent) !important; }
+  .jm-card-green:hover { border-color: rgba(57,255,120,0.6) !important; box-shadow: 0 0 40px rgba(57,255,120,0.15) !important; }
+  .jm-card-header {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+  }
+  .jm-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    border: 0.5px solid;
+    display: inline-block;
+  }
+  .jm-badge-purple { background: rgba(168,180,255,0.1); color: var(--accent); border-color: rgba(168,180,255,0.3); }
+  .jm-badge-teal { background: rgba(110,231,199,0.1); color: var(--accent2); border-color: rgba(110,231,199,0.3); }
+  .jm-badge-amber { background: rgba(240,194,122,0.1); color: var(--accent3); border-color: rgba(240,194,122,0.3); }
+  .jm-live-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    border: 0.5px solid rgba(168,180,255,0.3);
+    color: var(--accent);
+    background: rgba(168,180,255,0.08);
+    display: inline-block;
+    animation: livePulse 2s ease-in-out infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  .jm-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+  .jm-card-body {
+    font-size: 0.88rem;
+    color: #d8d8e8;
+    line-height: 1.9;
+  }
+  .jm-card-body strong { color: #ffffff; font-weight: 500; }
+  .jm-card-stats {
+    display: flex; gap: 0.8rem; flex-wrap: wrap;
+    margin-top: 0.3rem;
+  }
+  .jm-mini-stat {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 0.5rem 0.9rem;
+    border: 0.5px solid var(--border2);
+    border-radius: 8px;
+    background: var(--bg2);
+    min-width: 55px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+  .jm-mini-stat:hover { transform: translateY(-4px); }
+  .jm-mini-stat span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .jm-mini-stat {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .jm-stat-teal:hover { border-color: rgba(110,231,199,0.5); box-shadow: 0 0 12px rgba(110,231,199,0.2); }
+  .jm-stat-teal span { color: var(--accent2) !important; }
+  .jm-stat-purple:hover { border-color: rgba(168,180,255,0.5); box-shadow: 0 0 12px rgba(168,180,255,0.2); }
+  .jm-stat-purple span { color: var(--accent) !important; }
+  .jm-stat-amber:hover { border-color: rgba(240,194,122,0.5); box-shadow: 0 0 12px rgba(240,194,122,0.2); }
+  .jm-stat-amber span { color: var(--accent3) !important; }
+  .jm-stat-green:hover { border-color: rgba(57,255,120,0.5); box-shadow: 0 0 12px rgba(57,255,120,0.25); }
+  .jm-stat-green span { color: #39ff78 !important; }
+  .jm-card-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .jm-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: 0.5px solid var(--border2);
+    border-radius: 100px;
+    color: var(--muted);
+    transition: all 0.3s ease;
+    cursor: default;
+    display: inline-block;
+  }
+  .jm-tag:hover {
+    color: #39ff78;
+    border-color: rgba(57,255,120,0.5);
+    background: rgba(57,255,120,0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgba(57,255,120,0.2);
+  }
+  @media (max-width: 700px) {
+    .journey-milestone { grid-template-columns: 80px 50px 1fr; }
+    .jm-year { font-size: 0.9rem; }
+  }
 </style>
 </head>
 <body>
@@ -1569,104 +1822,195 @@ section {
 <section id="journey">
   <div class="section-label">06 — Journey & Milestones</div>
   <h2><strong>The Journey So Far</strong></h2>
-  <br/>
-  <div class="timeline">
+  <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 4rem; max-width: 600px;">
+    Every milestone a stepping stone. Every challenge a lesson. Here's how the story unfolded.
+  </p>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-line"></div>
-      <div class="timeline-date">2023</div>
-      <div class="timeline-card">
-        <div class="timeline-badge" style="background: rgba(168,180,255,0.1); color: var(--accent);">🎓 Academic</div>
-        <div class="timeline-title">B.Tech ECE · PDEU</div>
-        <div class="timeline-body">Began the journey at <strong>Pandit Deendayal Energy University</strong>, Gandhinagar — pursuing B.Tech in Electronics & Communication Engineering. Diving deep into power electronics, embedded systems, and satellite technology from day one.</div>
-        <div class="timeline-tags">
-          <span class="t-tag">PDEU · Gandhinagar</span>
-          <span class="t-tag">ECE · 2023–2027</span>
+  <div class="journey-wrapper">
+
+    <!-- MILESTONE 1 -->
+    <div class="journey-milestone" data-year="2023">
+      <div class="jm-left">
+        <div class="jm-year-block">
+          <div class="jm-year">2023</div>
+          <div class="jm-year-label">The Beginning</div>
+        </div>
+      </div>
+      <div class="jm-center">
+        <div class="jm-node">
+          <div class="jm-node-icon">🎓</div>
+          <div class="jm-node-ring"></div>
+        </div>
+        <div class="jm-connector"></div>
+      </div>
+      <div class="jm-right">
+        <div class="jm-card">
+          <div class="jm-card-header">
+            <span class="jm-badge jm-badge-purple">Academic · PDEU</span>
+          </div>
+          <div class="jm-card-title">B.Tech Electronics & Communication Engineering</div>
+          <div class="jm-card-body">Embarked on the engineering journey at <strong>Pandit Deendayal Energy University</strong>, Gandhinagar — one of Gujarat's premier technical institutions. Chose ECE to explore the intersection of hardware, systems, and space technology from day one.</div>
+          <div class="jm-card-stats">
+            <div class="jm-mini-stat"><span>ECE</span>Branch</div>
+            <div class="jm-mini-stat"><span>9.77</span>CGPA</div>
+            <div class="jm-mini-stat"><span>2027</span>Graduating</div>
+          </div>
+          <div class="jm-card-tags">
+            <span class="jm-tag">PDEU · Gandhinagar</span>
+            <span class="jm-tag">ECE · 2023–2027</span>
+            <span class="jm-tag">Gujarat</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-line"></div>
-      <div class="timeline-date">Jan 2024</div>
-      <div class="timeline-card">
-        <div class="timeline-badge" style="background: rgba(110,231,199,0.1); color: var(--accent2);">🏎 Competition</div>
-        <div class="timeline-title">Shell Eco-Marathon 2024 · Lusail International Circuit</div>
-        <div class="timeline-body">Competed at the prestigious <strong>Lusail International Circuit, Doha, Qatar</strong> as part of Team Kaizen. Achieved <strong>1st place in India</strong> and <strong>5th place in Asia</strong> in the Battery Electric Vehicle category — representing PDEU on a global stage for the first time.</div>
-        <div class="timeline-stats">
-          <div class="t-stat"><span>1st</span>India</div>
-          <div class="t-stat"><span>5th</span>Asia</div>
-          <div class="t-stat"><span>BEV</span>Category</div>
+    <!-- MILESTONE 2 -->
+    <div class="journey-milestone" data-year="2024">
+      <div class="jm-left">
+        <div class="jm-year-block">
+          <div class="jm-year">Jan 2024</div>
+          <div class="jm-year-label">Global Stage</div>
         </div>
-        <div class="timeline-tags">
-          <span class="t-tag">Qatar · Doha</span>
-          <span class="t-tag">Team Kaizen</span>
-          <span class="t-tag">Shell Eco-Marathon</span>
+      </div>
+      <div class="jm-center">
+        <div class="jm-node jm-node-teal">
+          <div class="jm-node-icon">🏎</div>
+          <div class="jm-node-ring"></div>
+        </div>
+        <div class="jm-connector"></div>
+      </div>
+      <div class="jm-right">
+        <div class="jm-card jm-card-teal">
+          <div class="jm-card-header">
+            <span class="jm-badge jm-badge-teal">Competition · Qatar</span>
+            <span class="jm-live-badge" style="background: rgba(110,231,199,0.1); color: var(--accent2); border-color: rgba(110,231,199,0.3);">Shell Eco-Marathon 2024</span>
+          </div>
+          <div class="jm-card-title">Lusail International Circuit · Doha, Qatar</div>
+          <div class="jm-card-body">Took Team Kaizen to the <strong>Lusail International Circuit</strong> — the same venue as Formula 1. Competing among Asia's best in the Battery Electric Vehicle category, achieved a landmark result in PDEU's history. The first time representing the university on this global stage.</div>
+          <div class="jm-card-stats">
+            <div class="jm-mini-stat jm-stat-teal"><span>1st</span>India</div>
+            <div class="jm-mini-stat jm-stat-teal"><span>5th</span>Asia</div>
+            <div class="jm-mini-stat jm-stat-teal"><span>BEV</span>Category</div>
+          </div>
+          <div class="jm-card-tags">
+            <span class="jm-tag">Lusail Circuit</span>
+            <span class="jm-tag">Team Kaizen</span>
+            <span class="jm-tag">Doha · Qatar</span>
+            <span class="jm-tag">Battery Electric</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-line"></div>
-      <div class="timeline-date">May 2025</div>
-      <div class="timeline-card">
-        <div class="timeline-badge" style="background: rgba(240,194,122,0.1); color: var(--accent3);">🔬 ASIC Design</div>
-        <div class="timeline-title">RTL to GDSII · Full ASIC Design Closure</div>
-        <div class="timeline-body">Completed a rigorous <strong>10-day RTL-to-GDSII ASIC Design Workshop</strong> using Synopsys EDA Tools — covering the complete chip design flow from RTL development, synthesis, floorplanning, placement, routing, power planning, to final verification. Successfully achieved full closure on an <strong>8-bit bidirectional shifter</strong>.</div>
-        <div class="timeline-stats">
-          <div class="t-stat"><span>10</span>Day Workshop</div>
-          <div class="t-stat"><span>8-bit</span>Shifter</div>
-          <div class="t-stat"><span>Full</span>Closure</div>
+    <!-- MILESTONE 3 -->
+    <div class="journey-milestone" data-year="2024B">
+      <div class="jm-left">
+        <div class="jm-year-block">
+          <div class="jm-year">2024–Now</div>
+          <div class="jm-year-label">Into Orbit</div>
         </div>
-        <div class="timeline-tags">
-          <span class="t-tag">Synopsys EDA</span>
-          <span class="t-tag">VLSI · ASIC</span>
-          <span class="t-tag">RTL to GDSII</span>
+      </div>
+      <div class="jm-center">
+        <div class="jm-node jm-node-purple">
+          <div class="jm-node-icon">🛰</div>
+          <div class="jm-node-ring"></div>
+        </div>
+        <div class="jm-connector"></div>
+      </div>
+      <div class="jm-right">
+        <div class="jm-card jm-card-purple">
+          <div class="jm-card-header">
+            <span class="jm-badge jm-badge-purple">Satellite Mission · ISRO</span>
+            <span class="jm-live-badge">● Active</span>
+          </div>
+          <div class="jm-card-title">Bharat-G Satellite Mission · ADCS Subsystem</div>
+          <div class="jm-card-body">Joined the prestigious <strong>PDEU–ISRO Bharat-G Satellite Mission</strong> as coordinator of the ADCS subsystem. Responsible for fusing data from sun sensors, IMUs, magnetometers, and star trackers to keep a satellite precisely oriented in orbit. Trained directly under an <strong>ISRO scientist for over a year</strong> — one of the most defining experiences of the journey.</div>
+          <div class="jm-card-stats">
+            <div class="jm-mini-stat jm-stat-purple"><span>ADCS</span>Lead</div>
+            <div class="jm-mini-stat jm-stat-purple"><span>1+</span>Yr Training</div>
+            <div class="jm-mini-stat jm-stat-purple"><span>ISRO</span>Mentor</div>
+          </div>
+          <div class="jm-card-tags">
+            <span class="jm-tag">PDEU × ISRO</span>
+            <span class="jm-tag">CubeSat</span>
+            <span class="jm-tag">Sensor Fusion</span>
+            <span class="jm-tag">Attitude Control</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-line"></div>
-      <div class="timeline-date">2024–Present</div>
-      <div class="timeline-card">
-        <div class="timeline-badge" style="background: rgba(168,180,255,0.1); color: var(--accent);">🛰 Satellite Mission</div>
-        <div class="timeline-title">Bharat-G Satellite Mission · ISRO Collaboration</div>
-        <div class="timeline-body">Joined the <strong>Bharat-G Satellite Mission</strong> — a prestigious PDEU–ISRO collaboration — as a member and coordinator of the ADCS subsystem. Responsible for sensor selection, placement, attitude estimation algorithms, and keeping a satellite precisely oriented in orbit. Trained under an <strong>ISRO scientist for over a year</strong>.</div>
-        <div class="timeline-stats">
-          <div class="t-stat"><span>ADCS</span>Subsystem</div>
-          <div class="t-stat"><span>1+</span>Year Training</div>
-          <div class="t-stat"><span>ISRO</span>Collaboration</div>
+    <!-- MILESTONE 4 -->
+    <div class="journey-milestone" data-year="2025A">
+      <div class="jm-left">
+        <div class="jm-year-block">
+          <div class="jm-year">May 2025</div>
+          <div class="jm-year-label">Silicon Dreams</div>
         </div>
-        <div class="timeline-tags">
-          <span class="t-tag">PDEU × ISRO</span>
-          <span class="t-tag">CubeSat</span>
-          <span class="t-tag">Sensor Fusion</span>
+      </div>
+      <div class="jm-center">
+        <div class="jm-node jm-node-amber">
+          <div class="jm-node-icon">🔬</div>
+          <div class="jm-node-ring"></div>
+        </div>
+        <div class="jm-connector"></div>
+      </div>
+      <div class="jm-right">
+        <div class="jm-card jm-card-amber">
+          <div class="jm-card-header">
+            <span class="jm-badge jm-badge-amber">ASIC Design · Synopsys</span>
+          </div>
+          <div class="jm-card-title">RTL to GDSII · Full ASIC Design Flow Closure</div>
+          <div class="jm-card-body">Completed a rigorous <strong>10-day RTL-to-GDSII ASIC Design Workshop</strong> using Synopsys EDA Tools. Navigated the complete chip design pipeline — RTL, synthesis, floorplanning, placement, routing, power planning, and timing verification. Achieved full closure on an <strong>8-bit bidirectional shifter</strong>. Certified by PDEU, Synopsys, and VLSI Expert.</div>
+          <div class="jm-card-stats">
+            <div class="jm-mini-stat jm-stat-amber"><span>10</span>Day Sprint</div>
+            <div class="jm-mini-stat jm-stat-amber"><span>8-bit</span>Shifter</div>
+            <div class="jm-mini-stat jm-stat-amber"><span>Full</span>Closure</div>
+          </div>
+          <div class="jm-card-tags">
+            <span class="jm-tag">Synopsys EDA</span>
+            <span class="jm-tag">RTL to GDSII</span>
+            <span class="jm-tag">VLSI · ASIC</span>
+            <span class="jm-tag">ICC2 · Verdi</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot active-dot"></div>
-      <div class="timeline-line"></div>
-      <div class="timeline-date">Jan 2025</div>
-      <div class="timeline-card featured-timeline">
-        <div class="timeline-badge" style="background: rgba(57,255,120,0.1); color: #39ff78;">🏆 Latest Achievement</div>
-        <div class="timeline-title">Shell Eco-Marathon 2025 · Lusail International Circuit</div>
-        <div class="timeline-body">Returned to <strong>Lusail International Circuit, Doha, Qatar</strong> — stronger, faster, and more efficient. Defended and retained the title of <strong>1st in India</strong> and <strong>5th in Asia</strong>, this time achieving a certified energy efficiency of <strong>227 km/kWh</strong>. Also received the <strong>ICC Star Recognition</strong> from the Indian Embassy, Qatar for representing India.</div>
-        <div class="timeline-stats">
-          <div class="t-stat" style="border-color: rgba(57,255,120,0.3);"><span style="color: #39ff78;">227</span>km/kWh</div>
-          <div class="t-stat" style="border-color: rgba(57,255,120,0.3);"><span style="color: #39ff78;">1st</span>India</div>
-          <div class="t-stat" style="border-color: rgba(57,255,120,0.3);"><span style="color: #39ff78;">5th</span>Asia</div>
+    <!-- MILESTONE 5 — LATEST -->
+    <div class="journey-milestone jm-latest" data-year="2025B">
+      <div class="jm-left">
+        <div class="jm-year-block jm-year-block-green">
+          <div class="jm-year" style="color: #39ff78;">Jan 2025</div>
+          <div class="jm-year-label" style="color: #39ff78;">Latest Peak</div>
         </div>
-        <div class="timeline-tags">
-          <span class="t-tag" style="border-color: rgba(57,255,120,0.4); color: #39ff78;">Qatar · Doha</span>
-          <span class="t-tag" style="border-color: rgba(57,255,120,0.4); color: #39ff78;">ICC Recognition</span>
-          <span class="t-tag" style="border-color: rgba(57,255,120,0.4); color: #39ff78;">227 km/kWh</span>
+      </div>
+      <div class="jm-center">
+        <div class="jm-node jm-node-green">
+          <div class="jm-node-icon">🏆</div>
+          <div class="jm-node-ring jm-ring-pulse"></div>
+        </div>
+      </div>
+      <div class="jm-right">
+        <div class="jm-card jm-card-green">
+          <div class="jm-card-header">
+            <span class="jm-badge" style="background: rgba(57,255,120,0.1); color: #39ff78; border-color: rgba(57,255,120,0.3);">🏆 Latest Achievement</span>
+            <span class="jm-live-badge" style="background: rgba(57,255,120,0.1); color: #39ff78; border-color: rgba(57,255,120,0.3);">● Live 2025</span>
+          </div>
+          <div class="jm-card-title" style="color: #39ff78;">Shell Eco-Marathon 2025 · Lusail International Circuit</div>
+          <div class="jm-card-body">Returned to <strong>Lusail International Circuit, Doha, Qatar</strong> — stronger and sharper. Defended the title with an even more refined vehicle. Achieved <strong>227 km/kWh</strong> certified energy efficiency — among the highest in the competition. Also received the <strong>ICC Star Recognition</strong> from the Indian Embassy, Qatar for representing India with distinction.</div>
+          <div class="jm-card-stats">
+            <div class="jm-mini-stat jm-stat-green"><span>227</span>km/kWh</div>
+            <div class="jm-mini-stat jm-stat-green"><span>1st</span>India</div>
+            <div class="jm-mini-stat jm-stat-green"><span>5th</span>Asia</div>
+            <div class="jm-mini-stat jm-stat-green"><span>ICC</span>Award</div>
+          </div>
+          <div class="jm-card-tags">
+            <span class="jm-tag" style="border-color: rgba(57,255,120,0.4); color: #39ff78;">Lusail Circuit</span>
+            <span class="jm-tag" style="border-color: rgba(57,255,120,0.4); color: #39ff78;">Qatar · Doha</span>
+            <span class="jm-tag" style="border-color: rgba(57,255,120,0.4); color: #39ff78;">ICC Recognition</span>
+            <span class="jm-tag" style="border-color: rgba(57,255,120,0.4); color: #39ff78;">227 km/kWh</span>
+          </div>
         </div>
       </div>
     </div>
