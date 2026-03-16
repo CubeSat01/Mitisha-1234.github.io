@@ -791,7 +791,7 @@ section {
     margin-top: 0.2rem;
   }
   .timeline-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-  .t-tag {
+.t-tag {
     font-family: 'DM Mono', monospace;
     font-size: 0.58rem;
     letter-spacing: 0.1em;
@@ -800,6 +800,17 @@ section {
     border: 0.5px solid var(--border2);
     border-radius: 100px;
     color: var(--muted);
+    transition: all 0.3s ease;
+    cursor: default;
+    display: inline-block;
+  }
+  .t-tag:hover {
+    color: #39ff78;
+    border-color: rgba(57,255,120,0.6);
+    background: rgba(57,255,120,0.08);
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 0 14px rgba(57,255,120,0.3), 0 0 30px rgba(57,255,120,0.1);
+    text-shadow: 0 0 10px rgba(57,255,120,0.5);
   }
  /* SKILLS REDESIGN */
   .skills-universe {
